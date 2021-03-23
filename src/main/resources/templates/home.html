@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div>
+    <h2>Добавить нового пользователя</h2>
+    <form actiom="/" method="post">
+        <input type="text" name="login" placeholder="Введите логин">
+        <input type="text" name="password" placeholder="Введите пароль">
+        <button type="submit">Добавить пользователя</button>
+    </form>
+</div>
+
+<div>
+    <h2>Список пользователей</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Login</th>
+            <th>Password</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.login}"></td>
+            <td th:text="${user.password}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
